@@ -42,7 +42,7 @@ app.listen(8001);
 
 停止 nginx，只运行以上脚本，访问 `http://localhost:8001/static/` 就可以看到目录 `/opt/static` 中的内容了，界面也很美观。需要注意的是，此时文件本身并没有被 serve，仍然需要使用 nginx 来 serve 文件。
 
-![](http://7fva40.com1.z0.glb.clouddn.com/serve-index.png)
+![](https://me-1254133903.cossh.myqcloud.com/serve-index.png)
 
 修改 nginx 的配置:
 
