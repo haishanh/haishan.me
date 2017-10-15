@@ -1,0 +1,114 @@
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  // background: url(http://carlog.qiniudn.com/david-marcu-114194.jpg);
+  // background-size: cover;
+  .bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    // background: rgba(0,0,0,0.7);
+    background: #000;
+  }
+}
+
+.tries {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  svg {
+    width: 39px;
+    height: 32px;
+    position: absolute;
+  }
+
+  svg:nth-child(1) {
+    top: 25%;
+    left: 18%;
+    fill: #faa623;
+    transform: rotate(134deg);
+  }
+
+  svg:nth-child(2) {
+    top: 27%;
+    left: 52%;
+    fill: #1abc9c;
+    transform: rotate(315deg);
+  }
+
+  svg:nth-child(3) {
+    top: 66%;
+    left: 30%;
+    fill: #3498DB;
+    transform: rotate(45deg);
+  }
+
+  svg:nth-child(4) {
+    top: 58%;
+    left: 69%;
+    fill: #E74C3C;
+    transform: rotate(345deg);
+  }
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+
+  svg {
+    width: 48px;
+    height: 48px;
+    fill: none;
+    stroke: #eee;
+    stroke-width: 2px;
+  }
+}
+
+.main {
+  nav {
+    padding: 20px 0;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      li {
+        padding: 5px 8px;
+      }
+
+      li:hover {
+        a {
+          color: #777;
+        }
+      }
+    }
+  }
+}
+
+.mainWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pageHeading {
+  font-weight: 100;
+}

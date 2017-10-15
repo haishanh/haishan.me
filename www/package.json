@@ -1,0 +1,28 @@
+{
+  "name": "haishan.me",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "DEBUG=www gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.4",
+    "bluebird": "^3.5.0",
+    "classnames": "^2.2.5",
+    "debug": "^3.1.0",
+    "gatsby": "^1.9.45",
+    "gatsby-link": "^1.6.17",
+    "gatsby-plugin-google-analytics": "^1.0.8",
+    "gatsby-plugin-postcss-sass": "^1.0.12",
+    "gatsby-remark-autolink-headers": "^1.4.7",
+    "gatsby-remark-prismjs": "^1.2.8",
+    "gatsby-source-filesystem": "^1.5.1",
+    "gatsby-transformer-remark": "^1.7.15",
+    "jump.js": "^1.0.2",
+    "react-helmet": "^5.2.0",
+    "tinytime": "^0.2.6"
+  }
+}
