@@ -35,10 +35,12 @@
   li > code,
   p > code {
     border-radius: 3px;
-    background: #f1f1f1;
-    padding: 0.2em 0;
+    background: #d6eaf4;
+    color: #0c4765;
+    padding: 0.2em 0.2em;
     margin: 0 4px;
     font-size: 0.85em;
+    border: 1px solid #51847f;
 
     &:before,
     &:after {
@@ -138,9 +140,14 @@
     }
 
     a {
-      color: #3498db;
+      // color: #3498db;
+      color: #999;
 
       &.focused {
+        color: #333;
+      }
+
+      &:hover {
         color: tomato;
       }
     }
@@ -156,6 +163,18 @@
     & > h2 {
       font-weight: 300;
       font-size: 2em;
+    }
+
+    a {
+      transition: all 0.5s ease;
+
+      &:hover {
+        background: #555;
+        border-radius: 3px;
+        color: #f3f3f3;
+        text-decoration: none;
+        transition: all 0.5s ease;
+      }
     }
   }
 }

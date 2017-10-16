@@ -109,19 +109,18 @@ class Header extends Component {
             aria-hidden="true"
             htmlFor="menustate"
           >
-            <div />
+            <div>
+              <div />
+            </div>
           </label>
         </div>
         <nav role="navigation" className={nav}>
           <ul>
             <li>
-              <a href="/archives">Archives</a>
+              <a href="/posts">Posts</a>
             </li>
             <li>
-              <a href="/atom.xml">RSS</a>
-            </li>
-            <li>
-              <a href="https://github.com/haishanh/hexo-theme-zxcvb">GitHub</a>
+              <a href="/notes">Notes</a>
             </li>
           </ul>
         </nav>

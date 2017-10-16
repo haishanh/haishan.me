@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "develop": "gatsby develop",
-    "start": "DEBUG=www gatsby develop",
+    "start": "DEBUG=www gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve"
   },

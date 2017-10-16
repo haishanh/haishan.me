@@ -38,7 +38,7 @@ app.use('/static', serveIndex('/opt/static', serveOpt));
 app.listen(8001);
 ```
 
-这段内容表示 express + serve-index 会 hosting 目录 `/opt/static`，使用的url路径为`/static`。假设以上内容保存为文件`serve.js`。给这个文件可执行权限，`chmod +x serve.js`，要注意脚本最开头的 *shebang* 要指定好，尤其是当你和我一样是用 nvm 来管理 node 版本的时候。
+这段内容表示 express + serve-index 会 hosting 目录 `/opt/static`，使用的 url 路径为`/static`。假设以上内容保存为文件`serve.js`。给这个文件可执行权限，`chmod +x serve.js`，要注意脚本最开头的 *shebang* 要指定好，尤其是当你和我一样是用 nvm 来管理 node 版本的时候。
 
 停止 nginx，只运行以上脚本，访问 `http://localhost:8001/static/` 就可以看到目录 `/opt/static` 中的内容了，界面也很美观。需要注意的是，此时文件本身并没有被 serve，仍然需要使用 nginx 来 serve 文件。
 
@@ -88,7 +88,7 @@ pm2 start /path/to/serve.js --name "serve-index"
 可以用 `pm2 list` 来查看当前 pm2 管理的进程情况。更多命令和用法可以看看[PM2 cheatsheet][pm2cs]
 
 
-如果需要开机启动，可以运行以下命令，`pm2`会自动判断操作系统/平台信息，[相应的进行startup配置][system-startup-conf]。
+如果需要开机启动，可以运行以下命令，`pm2`会自动判断操作系统/平台信息，[相应的进行 startup 配置][system-startup-conf]。
 
 ```sh
 sudo pm2 startup
@@ -100,7 +100,7 @@ sudo pm2 startup
 sudo pm2 startup systemd
 ```
 
-`pm2`会自动生成`systemd` service 配置文件，并enable这个service，一般这个文件的路径是 `/etc/systemd/system/pm2.service`。这个服务在 stop 的时候会 dump 当前 pm2 monitor的程序信息，start的时候再 load 这些信息。
+`pm2`会自动生成`systemd` service 配置文件，并 enable 这个 service，一般这个文件的路径是 `/etc/systemd/system/pm2.service`。这个服务在 stop 的时候会 dump 当前 pm2 monitor 的程序信息，start 的时候再 load 这些信息。
 
 [pm2cs]: http://pm2.keymetrics.io/docs/usage/quick-start/#cheatsheet
 [system-startup-conf]: http://pm2.keymetrics.io/docs/usage/startup/#startup-systems-support
