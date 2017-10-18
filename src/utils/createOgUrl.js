@@ -3,5 +3,5 @@
 import constants from '../constants';
 
 export default function createOgUrl(url = '') {
-  return constants.baseUrl + url.replace(/^\//, '');
+  return constants.baseUrl + '/' + url.replace(/^\//, '');
 }

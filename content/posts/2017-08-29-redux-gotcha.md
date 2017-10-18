@@ -25,7 +25,7 @@ FSA 的全称是[Flux Standard Action](https://github.com/acdlite/flux-standard-
 ```js
 {
   type: 'GET_USER_COMPLETED',
-	user: {
+  user: {
     username: 'alice',
     city: 'Shanghai'
   }
@@ -37,7 +37,7 @@ FSA 的全称是[Flux Standard Action](https://github.com/acdlite/flux-standard-
 ```js
 {
   type: 'GET_USER_COMPLETED',
-	data: {
+  data: {
     username: 'alice',
     city: 'Shanghai'
   }
@@ -59,7 +59,7 @@ FSA 的全称是[Flux Standard Action](https://github.com/acdlite/flux-standard-
 ```js
 {
   type: 'GET_USER_COMPLETED',
-	payload: {
+  payload: {
     username: 'alice',
     city: 'Shanghai'
   }
@@ -129,7 +129,7 @@ export default class Hello extends Component {
     const { user, title } = this.props;
     return (
       <div>
-		  <h1>{title}</h1>
+        <h1>{title}</h1>
         <p>{`Hello ${user.username}`}</p>
         <button onClick={this.handleLogout}>Logout</button>
       </div>
@@ -176,7 +176,6 @@ const shouldUpdate = shallowEqual(mergedProps, nextProps);
 
 有时你的 component 会触发一些 action，但这个 component 本身并不需要做 reaction，这个时候在 connect 中可以直接把`mapStateToProps`写成`null`。
 
-
 ## With `immutable.js`
 
 在 React app 中  [facebook/immutable-js](https://github.com/facebook/immutable-js/) 也很常用。一般用 immutable.js 都是为了更好的性能。但我见到很多人在 `mapStateToProps` 中直接在 immutable.js 数据上调用 `toJS` 或 `toJSON`来转换成 JS 数据类型。但这两个函数都产生的是一个新的 object，所以就会导致频繁且不必要的 rerender。同时也容易出现 bug，UI 发生意想不到的变化。
@@ -184,6 +183,5 @@ const shouldUpdate = shallowEqual(mergedProps, nextProps);
 所以 immutable.js 数据最好还是一传到底，直到是 JS 数据类型的 leaf 节点。当然 Redux 的 recipes 中建议 [Never use Immutable.JS in your Dumb Components](http://redux.js.org/docs/recipes/UsingImmutableJS.html#never-use-immutablejs-in-your-dumb-components)，所以要适时转换成 JS 数据。
 
 ## Ducks pattern
-因为用 Redux 真的要写好多 boilerplate code，其实很烦。所以我最近一直使用一个叫[Ducks pattern](https://github.com/erikras/ducks-modular-redux)的方式组织代码，还挺 happy 的。
 
-
+因为用 Redux 真的要写好多 boilerplate code，其实很烦。所以我最近一直使用一个叫 [Ducks pattern](https://github.com/erikras/ducks-modular-redux)的方式组织代码，还挺 happy 的。

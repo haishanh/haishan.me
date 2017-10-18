@@ -176,5 +176,10 @@
         transition: all 0.5s ease;
       }
     }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+    }
   }
 }
