@@ -75,6 +75,12 @@
 }
 
 .main {
+  max-width: 100%;
+  margin: 0;
+  padding: 30px;
+  background: #000;
+  color: #fff;
+
   nav {
     padding: 20px 0;
 
@@ -82,12 +88,14 @@
       margin: 0;
       padding: 0;
       list-style: none;
-      display: flex;
-      justify-content: center;
 
       a {
+        display: block;
+        padding: 10px 0;
         text-decoration: none;
-        color: #000;
+        color: #fff;
+        font-weight: 100;
+        font-size: 1.5em;
       }
 
       li {
@@ -107,8 +115,40 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-}
 
-.pageHeading {
-  font-weight: 100;
+  .social {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    a {
+      padding: 0 20px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+
+    .twitter {
+      &:hover {
+        svg path {
+          fill: #4c9eec;
+          stroke: rgba(0,0,0,0.1);
+        }
+      }
+    }
+
+    .github {
+      &:hover {
+        svg path {
+          fill: #fffeff;
+          stroke: rgba(0,0,0,0.1);
+        }
+      }
+    }
+  }
 }
