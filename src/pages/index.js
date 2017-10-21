@@ -36,13 +36,13 @@ export default class Index extends React.Component {
       transform: `rotate(${this.state.scrollY * 4 + 134}deg)`
     };
     const tri2Style = {
-      transform: `rotate(${this.state.scrollY * 2 + 35}deg)`
+      transform: `rotate(${this.state.scrollY * 3 + 35}deg)`
     };
     const tri3Style = {
-      transform: `rotate(${this.state.scrollY + 45}deg)`
+      transform: `rotate(${this.state.scrollY * 3 + 45}deg)`
     };
     const tri4Style = {
-      transform: `rotate(${this.state.scrollY * 3 + 75}deg)`
+      transform: `rotate(${this.state.scrollY * 4 + 75}deg)`
     };
     return (
       <div>
