@@ -8,7 +8,7 @@ export default function throttle(fn, ms) {
     timeoutId = setTimeout(() => (timeoutId = null), ms);
     fn(...args);
     // clear timeout when we are done
-    timeoutId = null;
+    // timeoutId = null;
   }
   return wrappered;
 }
