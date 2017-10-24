@@ -12,6 +12,7 @@ install:
   - yarn
 script:
   - yarn build
+  - find public -type f -print | sort
 deploy:
   provider: firebase
   token:
