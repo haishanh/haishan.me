@@ -28,10 +28,22 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'haishan.me',
+        short_name: 'haishan.me',
+        start_url: '/',
+        background_color: '#00000',
+        theme_color: '#000000',
+        display: 'minimal-ui'
+      }
+    },
+    'gatsby-plugin-offline',
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-76464910-3'
-      },
-    },
+      }
+    }
   ]
 };

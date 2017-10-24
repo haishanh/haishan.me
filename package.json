@@ -16,6 +16,8 @@
     "gatsby": "^1.9.45",
     "gatsby-link": "^1.6.17",
     "gatsby-plugin-google-analytics": "^1.0.8",
+    "gatsby-plugin-manifest": "^1.0.8",
+    "gatsby-plugin-offline": "^1.0.10",
     "gatsby-plugin-postcss-sass": "^1.0.12",
     "gatsby-remark-autolink-headers": "^1.4.7",
     "gatsby-remark-prismjs": "^1.2.8",
