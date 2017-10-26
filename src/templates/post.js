@@ -14,13 +14,15 @@ import './prism-yo.scss';
 import style from './post.module.scss';
 
 export default class Post extends Component {
+  dom = {};
+
   componentDidMount() {
-    const { toc, tocAnchor } = this;
+    const { toc, tocStickAnchor } = this.dom;
     if (toc) {
       // stickToc
       const { fixed } = style;
       function stickToc() {
-        var tocTop = tocAnchor.getBoundingClientRect().top;
+        var tocTop = tocStickAnchor.getBoundingClientRect().top;
         if (tocTop <= 0) {
           toc.classList.add(fixed);
         } else {
@@ -41,6 +43,8 @@ export default class Post extends Component {
         );
       }, 5);
 
+      const tocClassName = style.tocContainer;
+
       let focused = null;
       function toggleFocusedHeading() {
         const scrollY = window.scrollY;
@@ -52,11 +56,11 @@ export default class Post extends Component {
         if (null !== cur && focused !== cur) {
           if (focused) {
             // un focus previous one
-            document
+            toc
               .querySelector(`ul li a[href="#${focused}"]`)
               .classList.remove(style.focused);
           }
-          document
+          toc
             .querySelector(`ul li a[href="#${cur}"]`)
             .classList.add(style.focused);
           focused = cur;
@@ -77,7 +81,7 @@ export default class Post extends Component {
       }
       window.addEventListener('scroll', requestTick);
 
-      document.querySelectorAll('ul li a').forEach(a => {
+      document.querySelectorAll(`${tocClassName} ul li a`).forEach(a => {
         a.onclick = function(e) {
           e.preventDefault();
           const t = a.getAttribute('href');
@@ -94,7 +98,7 @@ export default class Post extends Component {
 
     const { toc, tocContainer, tocTitle } = style;
     return (
-      <div className={tocContainer} ref={el => (this.toc = el)}>
+      <div className={tocContainer} ref={el => (this.dom.toc = el)}>
         <div className={tocTitle}>In this page</div>
         <div
           className={toc}
@@ -109,10 +113,40 @@ export default class Post extends Component {
     const { title, hero, date } = post.frontmatter;
     const dateObj = new Date(date);
 
+    let headerStyle = {};
+    let headerWrapperStyle = {};
+    if (hero) {
+      const bgSize = hero.size || 'cover';
+      const bgHeight = hero.height || '450px';
+      const bgPosition = hero.position || 'center';
+      const bgRepeat = hero.repeat || 'no-repeat';
+      const bgColor = hero.color ? hero.color : false;
+      const bgImg = hero.image ? `url(${hero.image})` : false;
+      headerStyle = {
+        textAlign: 'left',
+        color: '#fff',
+        height: bgHeight,
+        backgroundImage: bgImg,
+        backgroundSize: bgSize,
+        backgroundPosition: bgPosition,
+        backgroundRepeat: bgRepeat,
+        backgroundColor: bgColor
+      };
+      headerWrapperStyle = {
+        position: 'absolute',
+        bottom: '10%',
+        paddingLeft: '10%',
+        width: '100%'
+      };
+    }
+
     const { article, contentWrapper, content } = style;
     return (
       <div>
-        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Inconsolata"
+          rel="stylesheet"
+        />
         <TitleAndMetaTags
           ogDescription={post.excerpt}
           ogUrl={createOgUrl(post.fields.url)}
@@ -125,11 +159,18 @@ export default class Post extends Component {
             itemScope
             itemType="http://schema.org/BlogPosting"
           >
-            <h1 itemProp="headline">{title}</h1>
-            <div className={style.meta}>
-              <PublishTime date={dateObj} />
-            </div>
-            <div className={contentWrapper} ref={el => (this.tocAnchor = el)}>
+            <header className={style.articleHeader} style={headerStyle}>
+              <div style={headerWrapperStyle}>
+                <h1 itemProp="headline">{title}</h1>
+                <div className={style.meta}>
+                  <PublishTime date={dateObj} />
+                </div>
+              </div>
+            </header>
+            <div
+              className={contentWrapper}
+              ref={el => (this.dom.tocStickAnchor = el)}
+            >
               {this.renderToc(post.tableOfContents)}
               <div
                 className={content}

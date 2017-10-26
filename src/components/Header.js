@@ -62,25 +62,8 @@ class Header extends Component {
     const { isMenuToggled, logoColor } = this.state;
     const hamburgerClassNames = cx(hamburger, { [toggle]: isMenuToggled });
 
-    let headerStyle = {};
-    if (hero) {
-      const bgSize = hero.size || 'cover';
-      const bgHeight = hero.height || '450px';
-      const bgPosition = hero.position || 'center';
-      const bgRepeat = hero.repeat || 'no-repeat';
-      const bgColor = hero.color ? hero.color : false;
-      const bgImg = hero.image ? `url(${hero.image})` : false;
-      headerStyle = {
-        height: bgHeight,
-        backgroundImage: bgImg,
-        backgroundSize: bgSize,
-        backgroundPosition: bgPosition,
-        backgroundRepeat: bgRepeat,
-        backgroundColor: bgColor
-      };
-    }
     return (
-      <header style={headerStyle}>
+      <header className={style.masthead}>
         <input
           type="checkbox"
           id="menustate"

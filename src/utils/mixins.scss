@@ -1,0 +1,12 @@
+@mixin clearfix ($direction: both) {
+  &:before,
+  &:after {
+      display: table;
+      content: '';
+      zoom: 1;
+  }
+
+  &:after {
+      clear: $direction;
+  }
+}
