@@ -39,11 +39,13 @@ $gutter-distance: 6px;
   }
 
   a {
+    $size: 80px;
+
     display: block;
     position: relative;
     z-index: 2;
-    width: 40px;
-    height: 40px;
+    width: $size;
+    height: $size;
 
     img {
       max-width: 100%;
@@ -53,11 +55,12 @@ $gutter-distance: 6px;
 
 .hamburger {
   $size: 19px;
+  $outer-size: 60px;
 
   position: relative;
   z-index: 2;
-  width: 35px;
-  height: 35px;
+  width: $outer-size;
+  height: $outer-size;
 
   & > div {
     position: absolute;
@@ -75,8 +78,9 @@ $gutter-distance: 6px;
     position: absolute;
     top: ($size - 1px) / 2;
 
-    &:before, &:after {
-      content: " ";
+    &:before,
+    &:after {
+      content: ' ';
       position: absolute;
       width: $size;
       height: 1px;
@@ -134,11 +138,9 @@ $gutter-distance: 6px;
   div div {
     visibility: hidden;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       visibility: visible;
-
-      //transition: all 0.5s ease;
-   
     }
 
     &:before {

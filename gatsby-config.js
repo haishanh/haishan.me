@@ -1,6 +1,10 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer');
+const isDev = process.env.NODE_ENV !== 'production';
+
+const LOCAL_IDENT_NAME_DEV = '[path]_[name]_[local]_[hash:base64:5]';
+const LOCAL_IDENT_NAME_PROD = '[hash:base64:10]';
+const localIdentName = isDev ? LOCAL_IDENT_NAME_DEV : LOCAL_IDENT_NAME_PROD;
 
 module.exports = {
   siteMetadata: {
@@ -8,14 +12,16 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-postcss-sass`,
+      resolve: 'gatsby-plugin-sass',
       options: {
-        postCssPlugins: [autoprefixer()],
-        precision: 8
+        postCssPlugins: [require('autoprefixer')()],
+        cssLoaderOptions: {
+          localIdentName
+        }
       }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `content`,
         path: `${__dirname}/content`
@@ -38,7 +44,7 @@ module.exports = {
         display: 'minimal-ui'
       }
     },
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

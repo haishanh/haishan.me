@@ -1,4 +1,6 @@
+.cache/
 node_modules/
 public/
-.cache/
 draft/
+*.log
+content/notes/draft*

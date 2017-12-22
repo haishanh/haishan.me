@@ -5,28 +5,34 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "DEBUG=www gatsby develop -H 0.0.0.0",
-    "build": "gatsby build",
-    "serve": "gatsby serve"
+    "build": "NODE_ENV=production gatsby build",
+    "serve": "gatsby serve",
+    "pretty": "prettier --single-quote --write 'src/**/*.{js,scss}'"
   },
   "dependencies": {
-    "autoprefixer": "^9.6.0",
+    "autoprefixer": "^9.6.1",
     "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
-    "debug": "^3.1.0",
-    "gatsby": "1.9.76",
-    "gatsby-link": "^1.6.46",
-    "gatsby-plugin-google-analytics": "^1.0.8",
-    "gatsby-plugin-manifest": "^1.0.8",
-    "gatsby-plugin-netlify": "^1.0.6",
-    "gatsby-plugin-offline": "^1.0.10",
-    "gatsby-plugin-postcss-sass": "^1.0.12",
-    "gatsby-remark-autolink-headers": "^1.4.7",
-    "gatsby-remark-prismjs": "^1.2.8",
-    "gatsby-source-filesystem": "^1.5.1",
-    "gatsby-transformer-remark": "^1.7.15",
+    "debug": "^4.0.1",
+    "gatsby": "^2.13.32",
+    "gatsby-plugin-google-analytics": "^2.1.1",
+    "gatsby-plugin-manifest": "^2.0.4",
+    "gatsby-plugin-netlify": "^2.0.1",
+    "gatsby-plugin-offline": "^2.2.1",
+    "gatsby-plugin-sass": "^2.0.1",
+    "gatsby-remark-autolink-headers": "^2.0.0-beta.1",
+    "gatsby-remark-prismjs": "^3.3.2",
+    "gatsby-source-filesystem": "^2.1.2",
+    "gatsby-transformer-remark": "^2.6.8",
     "jump.js": "^1.0.2",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.10.0",
+    "prismjs": "^1.14.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
     "tinytime": "^0.2.6"
+  },
+  "devDependencies": {
+    "prettier": "^1.12.1"
   }
 }

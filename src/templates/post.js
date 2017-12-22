@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { graphql } from "gatsby"
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -22,7 +23,7 @@ export default class Post extends Component {
       // stickToc
       const { fixed } = style;
       function stickToc() {
-        var tocTop = tocStickAnchor.getBoundingClientRect().top;
+        const tocTop = tocStickAnchor.getBoundingClientRect().top;
         if (tocTop <= 0) {
           toc.classList.add(fixed);
         } else {
@@ -31,7 +32,7 @@ export default class Post extends Component {
       }
 
       // set focused heading
-      const { headings } = this.props.pathContext;
+      const { headings } = this.props.pageContext;
       let offsets = [];
 
       // waiting for browser re-layout
@@ -55,7 +56,7 @@ export default class Post extends Component {
         }
         if (null !== cur && focused !== cur) {
           if (focused) {
-            // un focus previous one
+            // blur previous one
             toc
               .querySelector(`ul li a[href="#${focused}"]`)
               .classList.remove(style.focused);
@@ -81,13 +82,15 @@ export default class Post extends Component {
       }
       window.addEventListener('scroll', requestTick);
 
-      document.querySelectorAll(`${tocClassName} ul li a`).forEach(a => {
-        a.onclick = function(e) {
+      const tocEl = document.getElementsByClassName(tocClassName)[0];
+      if (tocEl) {
+        tocEl.addEventListener('click', e => {
+          if (e.target.nodeName.toLowerCase() !== 'a') return;
           e.preventDefault();
-          const t = a.getAttribute('href');
+          const t = e.target.getAttribute('href');
           jump(t, { duration: 200 });
-        };
-      });
+        });
+      }
     }
   }
 
@@ -109,6 +112,7 @@ export default class Post extends Component {
   }
 
   render() {
+    const { toc } = this.props.pageContext;
     const post = this.props.data.markdownRemark;
     const { title, hero, date } = post.frontmatter;
     const dateObj = new Date(date);
@@ -171,7 +175,7 @@ export default class Post extends Component {
               className={contentWrapper}
               ref={el => (this.dom.tocStickAnchor = el)}
             >
-              {this.renderToc(post.tableOfContents)}
+              {this.renderToc(toc)}
               <div
                 className={content}
                 itemProp="articleBody"

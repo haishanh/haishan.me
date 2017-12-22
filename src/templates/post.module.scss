@@ -1,4 +1,4 @@
-@import "../utils/mixins.scss";
+@import '../utils/mixins.scss';
 
 .article {
   @include clearfix;
@@ -36,7 +36,8 @@
   }
 
   code {
-    font-family: Inconsolata,Consolas,Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-family: Inconsolata, Consolas, Monaco, Menlo, Consolas, 'Courier New',
+      monospace;
   }
 
   // inline code
@@ -52,7 +53,7 @@
 
     &:before,
     &:after {
-      content: "\00a0";
+      content: '\00a0';
       letter-spacing: -0.2em;
     }
   }
@@ -95,7 +96,7 @@
   padding: 0 15px;
 
   &:after {
-    content: ".";
+    content: '.';
     visibility: hidden;
     display: block;
     height: 0;
@@ -105,6 +106,9 @@
   .tocContainer {
     display: none;
 
+    overflow-y: scroll;
+    max-height: 100vh;
+
     // position: absolute;
     // top: 0;
     // left: -280px;
@@ -113,7 +117,6 @@
     border-radius: 5px;
     padding: 10px;
     background: #fefefe;
-    z-index: 2;
   }
 
   @media screen and (min-width: 1260px) {
@@ -168,6 +171,7 @@
   .fixed {
     position: fixed;
     top: 0;
+    z-index: 2;
   }
 
   .content {

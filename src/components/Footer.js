@@ -1,7 +1,5 @@
 import React from 'react';
 
-import style from './Footer.module.scss';
+import s0 from './Footer.module.scss';
 
-export default () => {
-  return <footer className={style.footer}>© 2017 Haishan</footer>
-};
+export default () => <footer className={s0.footer}>© 2018 Haishan</footer>;
