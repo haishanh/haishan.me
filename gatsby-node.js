@@ -6,7 +6,17 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { getPostUrl, getNoteUrl } = require('./src/utils/url');
 
+function preprocessToc(tocHtml) {
+  // convert 
+  // <a href="/notes/2015-09-24-bash/#getopts">getopts</a>
+  // to
+  // <a href="#getopts">getopts</a>
+  return tocHtml.replace(/(href=")[\S]*?#/g, '$1#');
+}
+
+
 const headingPat = /"#(\S*?)"/g;
+
 const getAllHeadings = toc => {
   let capture;
   let ret = [];
@@ -110,8 +120,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       debug('url', url);
 
       let headings = [];
+      let toc;
       if (type === 'notes' && tableOfContents !== '' ) {
-        headings = getAllHeadings(tableOfContents);
+        toc = preprocessToc(tableOfContents);
+        headings = getAllHeadings(toc);
         // debug('headings: %o', headings);
       }
 
@@ -120,7 +132,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         component,
         context: {
           // Data passed to context is available in page queries as GraphQL variables.
+          // @see https://www.gatsbyjs.org/docs/bound-action-creators/#createPage
           slug,
+          toc,
           headings
         }
       });
