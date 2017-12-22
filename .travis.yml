@@ -20,4 +20,6 @@ deploy:
   on:
     branch:
       - dev
+      - development
+      - master
   skip_cleanup: true
