@@ -105,6 +105,9 @@
   .tocContainer {
     display: none;
 
+    overflow-y: scroll;
+    max-height: 100vh;
+
     // position: absolute;
     // top: 0;
     // left: -280px;
@@ -113,7 +116,6 @@
     border-radius: 5px;
     padding: 10px;
     background: #fefefe;
-    z-index: 2;
   }
 
   @media screen and (min-width: 1260px) {
@@ -168,6 +170,7 @@
   .fixed {
     position: fixed;
     top: 0;
+    z-index: 2;
   }
 
   .content {
