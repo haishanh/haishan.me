@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Redux Gotcha
+title:  Redux Gotchas
 date:   2017-08-19
 ---
 
