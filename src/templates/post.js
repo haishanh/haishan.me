@@ -22,7 +22,7 @@ export default class Post extends Component {
       // stickToc
       const { fixed } = style;
       function stickToc() {
-        var tocTop = tocStickAnchor.getBoundingClientRect().top;
+        const tocTop = tocStickAnchor.getBoundingClientRect().top;
         if (tocTop <= 0) {
           toc.classList.add(fixed);
         } else {
@@ -55,7 +55,7 @@ export default class Post extends Component {
         }
         if (null !== cur && focused !== cur) {
           if (focused) {
-            // un focus previous one
+            // blur previous one
             toc
               .querySelector(`ul li a[href="#${focused}"]`)
               .classList.remove(style.focused);
@@ -160,8 +160,7 @@ export default class Post extends Component {
           <article
             className={article}
             itemScope
-            itemType="http://schema.org/BlogPosting"
-          >
+            itemType="http://schema.org/BlogPosting">
             <header className={style.articleHeader} style={headerStyle}>
               <div style={headerWrapperStyle}>
                 <h1 itemProp="headline">{title}</h1>
@@ -172,8 +171,7 @@ export default class Post extends Component {
             </header>
             <div
               className={contentWrapper}
-              ref={el => (this.dom.tocStickAnchor = el)}
-            >
+              ref={el => (this.dom.tocStickAnchor = el)}>
               {this.renderToc(toc)}
               <div
                 className={content}
