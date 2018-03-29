@@ -23,7 +23,7 @@ class Page extends Component {
           <h1>404</h1>
           <h2>Page Not Found</h2>
           <img
-            src="http://me-1254133903.cossh.myqcloud.com/grinning-face-with-one-large-and-one-small-eye_1f92a.png"
+            src="https://i.loli.net/2018/03/29/5abcfa2fddb20.png"
             alt="404"
           />
         </div>
