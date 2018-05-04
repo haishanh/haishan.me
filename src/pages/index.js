@@ -51,6 +51,9 @@ export default class Index extends React.Component {
       );
     }
     window.addEventListener('scroll', this.handleScroll);
+
+    // yo
+    console.log('<𝙷𝚊𝚒𝚜𝚑𝚊𝚗 /> did mount!!!');
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
