@@ -7,6 +7,7 @@ module.exports = {
     title: 'haishan.me'
   },
   plugins: [
+    'gatsby-plugin-react-next',
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {

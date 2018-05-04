@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import logoImg from '../assets/logo.svg';
 
-import style from './Header.module.scss';
+import s0 from './Header.module.scss';
 
 /**
  * get random integer, [min, max)
@@ -24,6 +24,7 @@ class Header extends Component {
   static defaultProps = {
     logoColorPresets: ['red', '#ff00ed', '#0097ff', '#74c34a', '#ff8000']
   };
+
   static propTypes = {
     logoColorPresets: PropTypes.arrayOf(PropTypes.string),
     hero: PropTypes.shape({
@@ -34,14 +35,11 @@ class Header extends Component {
       color: PropTypes.string
     })
   };
+
   constructor(props) {
     super(props);
 
-    this.state = {
-      isMenuToggled: false,
-      logoColor: 'none'
-    };
-    this.handleHamburgerOnClick = this.handleHamburgerOnClick.bind(this);
+    this.state = { logoColor: 'none' };
   }
 
   handleLogoOnMouseEnter = e => {
@@ -52,26 +50,20 @@ class Header extends Component {
     this.setState({ logoColor: getRandomEle(presets) });
   };
 
-  handleHamburgerOnClick(e) {
-    e.preventDefault();
-    this.setState({ isMenuToggled: !this.state.isMenuToggled });
-  }
   render() {
-    const { wrapper, logo, menustate, hamburger, nav, toggle } = style;
     const { hero } = this.props;
-    const { isMenuToggled, logoColor } = this.state;
-    const hamburgerClassNames = cx(hamburger, { [toggle]: isMenuToggled });
+    const { logoColor } = this.state;
 
     return (
-      <header className={style.masthead}>
+      <header className={s0.masthead}>
         <input
           type="checkbox"
           id="menustate"
-          className={menustate}
+          className={s0.menustate}
           style={{ display: 'none' }}
         />
-        <div className={wrapper}>
-          <div className={logo} onMouseEnter={this.handleLogoOnMouseEnter}>
+        <div className={s0.wrapper}>
+          <div className={s0.logo} onMouseEnter={this.handleLogoOnMouseEnter}>
             <Link to={'/'}>
               <img src={logoImg} alt="logo" />
             </Link>
@@ -81,23 +73,21 @@ class Header extends Component {
                 height="128"
                 viewBox="0 0 128 128"
                 xmlns="http://www.w3.org/2000/svg"
-                fill={logoColor}
-              >
+                fill={logoColor}>
                 <path d="M28.2 43.7C17.2 54.7 2 66.4 2 79.2c0 13 6 22 31 23.3 24.8 1 30 12.3 51 12.3 20.6 0 42-15 42-41.2 0-21-11.8-28.5-20.2-39-8.4-10.3-18-21.6-38-21.6S39.5 32.8 28.3 43.7z" />
               </svg>
             </div>
           </div>
           <label
-            className={hamburgerClassNames}
+            className={s0.hamburger}
             aria-hidden="true"
-            htmlFor="menustate"
-          >
+            htmlFor="menustate">
             <div>
               <div />
             </div>
           </label>
         </div>
-        <nav role="navigation" className={nav}>
+        <nav role="navigation" className={s0.nav}>
           <ul>
             <li>
               <a href="/posts">Posts</a>
