@@ -36,11 +36,7 @@ class Header extends Component {
     })
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = { logoColor: 'none' };
-  }
+  state = { logoColor: 'none' };
 
   handleLogoOnMouseEnter = e => {
     // return;
