@@ -78,8 +78,9 @@ $gutter-distance: 6px;
     position: absolute;
     top: ($size - 1px) / 2;
 
-    &:before, &:after {
-      content: " ";
+    &:before,
+    &:after {
+      content: ' ';
       position: absolute;
       width: $size;
       height: 1px;
@@ -137,11 +138,9 @@ $gutter-distance: 6px;
   div div {
     visibility: hidden;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       visibility: visible;
-
-      //transition: all 0.5s ease;
-   
     }
 
     &:before {
