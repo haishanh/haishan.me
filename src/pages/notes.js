@@ -8,7 +8,10 @@ import constants from '../constants';
 export default ({ data }) => {
   return (
     <div>
-      <TitleAndMetaTags title={'Notes - ' + constants.siteName} ogUrl={createOgUrl()} />
+      <TitleAndMetaTags
+        title={'Notes - ' + constants.siteName}
+        ogUrl={createOgUrl()}
+      />
       <PostList edges={data.allMarkdownRemark.edges} />
     </div>
   );

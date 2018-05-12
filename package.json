@@ -6,7 +6,8 @@
     "develop": "gatsby develop",
     "start": "DEBUG=www gatsby develop -H 0.0.0.0",
     "build": "NODE_ENV=production gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "pretty": "prettier --single-quote --write 'src/**/*.{js,scss}'"
   },
   "dependencies": {
     "autoprefixer": "^8.4.1",
@@ -30,5 +31,8 @@
     "prismjs": "^1.14.0",
     "react-helmet": "^5.2.0",
     "tinytime": "^0.2.6"
+  },
+  "devDependencies": {
+    "prettier": "^1.12.1"
   }
 }
