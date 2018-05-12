@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 const defaultDescription = 'Haishan website';
 
-const TitleAndMetaTags = ({title, ogDescription, ogUrl}) => {
+const TitleAndMetaTags = ({ title, ogDescription, ogUrl }) => {
   return (
     <Helmet title={title}>
       <meta property="og:title" content={title} />

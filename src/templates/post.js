@@ -160,7 +160,8 @@ export default class Post extends Component {
           <article
             className={article}
             itemScope
-            itemType="http://schema.org/BlogPosting">
+            itemType="http://schema.org/BlogPosting"
+          >
             <header className={style.articleHeader} style={headerStyle}>
               <div style={headerWrapperStyle}>
                 <h1 itemProp="headline">{title}</h1>
@@ -171,7 +172,8 @@ export default class Post extends Component {
             </header>
             <div
               className={contentWrapper}
-              ref={el => (this.dom.tocStickAnchor = el)}>
+              ref={el => (this.dom.tocStickAnchor = el)}
+            >
               {this.renderToc(toc)}
               <div
                 className={content}

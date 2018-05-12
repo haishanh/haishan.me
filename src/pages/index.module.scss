@@ -89,7 +89,6 @@
   text-align: center;
 
   .social {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,12 +103,11 @@
       }
     }
 
-
     .twitter {
       &:hover {
         svg path {
           fill: #4c9eec;
-          stroke: rgba(0,0,0,0.1);
+          stroke: rgba(0, 0, 0, 0.1);
         }
       }
     }
@@ -118,7 +116,7 @@
       &:hover {
         svg path {
           fill: #fffeff;
-          stroke: rgba(0,0,0,0.1);
+          stroke: rgba(0, 0, 0, 0.1);
         }
       }
     }

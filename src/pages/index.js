@@ -7,7 +7,7 @@ import throttle from '../utils/throttle';
 import isMobile from '../utils/isMobile';
 
 import '../utils/reset.scss';
-import style from './index.module.scss';
+import s0 from './index.module.scss';
 import jump from 'jump.js';
 
 const svgSprite = `
@@ -21,9 +21,13 @@ const svgSprite = `
     </svg>
 `;
 
+const colors = ['#faa623', '#1abc9c', '#3498db', '#e74c3c'];
+const scolors = ['#755727', '#1f564c', '#305b77', '#8a3c34'];
+
 export default class Index extends React.Component {
   state = { scrollY: 0, x: 0, y: 0 };
   dom = {};
+  isMobile = isMobile(window.userAgent || window.navigator.userAgent);
 
   handleScroll = ev => {
     ev.preventDefault();
@@ -39,11 +43,12 @@ export default class Index extends React.Component {
 
   handleOrientation = ev => {
     ev.preventDefault();
-    const factor = 15;
     this.setState({ x: ev.gamma * 15, y: (ev.beta - 50) * 15 });
   };
+
+  handleArrowOnClick = () => jump('main');
+
   componentDidMount() {
-    this.isMobile = isMobile(window.userAgent || window.navigator.userAgent);
     if (this.isMobile) {
       window.addEventListener(
         'deviceorientation',
@@ -59,15 +64,12 @@ export default class Index extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   render() {
-    const grey = '#4c4c4c';
     const rotates = [
       `rotate(${this.state.scrollY * 4 + 134}deg)`,
       `rotate(${this.state.scrollY * 3 + 35}deg)`,
       `rotate(${this.state.scrollY * 3 + 45}deg)`,
       `rotate(${this.state.scrollY * 4 + 75}deg)`
     ];
-    const colors = ['#faa623', '#1abc9c', '#3498db', '#e74c3c'];
-    const scolors = ['#755727', '#1f564c', '#305b77', '#8a3c34'];
     const x = this.state.x / 50;
     const y = this.state.y / 50;
     const t = `translate(${x}px, ${y}px)`;
@@ -89,12 +91,12 @@ export default class Index extends React.Component {
           style={{ display: 'none', position: 'absolute', width: 0, height: 0 }}
         />
         <div
-          className={style.hero}
+          className={s0.hero}
           ref={e => (this.dom.hero = e)}
           onMouseMove={this.handleMouseMove}
         >
-          <div className={style.bg} />
-          <div className={style.tries}>
+          <div className={s0.bg} />
+          <div className={s0.tries}>
             <div
               style={{
                 position: 'absolute',
@@ -237,14 +239,14 @@ export default class Index extends React.Component {
             </div>
           </div>
 
-          <div className={style.arrow} onClick={() => jump('main')}>
+          <div className={s0.arrow} onClick={this.handleArrowOnClick}>
             <svg>
               <use xlinkHref="#arrow-down" />
             </svg>
           </div>
         </div>
-        <main className={style.main} aria-label="Content">
-          <div className={style.mainWrapper}>
+        <main className={s0.main} aria-label="Content">
+          <div className={s0.mainWrapper}>
             <nav>
               <ul>
                 <li>
@@ -255,8 +257,8 @@ export default class Index extends React.Component {
                 </li>
               </ul>
             </nav>
-            <div className={style.social}>
-              <a href="https://twitter.com/carlhan" className={style.twitter}>
+            <div className={s0.social}>
+              <a href="https://twitter.com/carlhan" className={s0.twitter}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -271,7 +273,7 @@ export default class Index extends React.Component {
                   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                 </svg>
               </a>
-              <a href="https://github.com/haishanh" className={style.github}>
+              <a href="https://github.com/haishanh" className={s0.github}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
