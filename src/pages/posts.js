@@ -8,7 +8,6 @@ import constants from '../constants';
 import '../utils/reset.scss';
 
 export default ({ data }) => {
-  console.log(data);
   return (
     <div>
       <TitleAndMetaTags
