@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { graphql } from 'gatsby';
 import PostList from '../components/PostList';
 
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
@@ -7,6 +8,7 @@ import constants from '../constants';
 import '../utils/reset.scss';
 
 export default ({ data }) => {
+  console.log(data);
   return (
     <div>
       <TitleAndMetaTags
@@ -21,7 +23,10 @@ export default ({ data }) => {
 export const pageQuery = graphql`
   query BlogPostsIndexQuery {
     allMarkdownRemark(
-      filter: { id: { regex: "/posts/" }, fields: { hidden: { ne: true } } }
+      filter: {
+        fileAbsolutePath: { regex: "/posts/" }
+        fields: { hidden: { ne: true } }
+      }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {

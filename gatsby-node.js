@@ -7,13 +7,12 @@ const { createFilePath } = require('gatsby-source-filesystem');
 const { getPostUrl, getNoteUrl } = require('./src/utils/url');
 
 function preprocessToc(tocHtml) {
-  // convert 
+  // convert
   // <a href="/notes/2015-09-24-bash/#getopts">getopts</a>
   // to
   // <a href="#getopts">getopts</a>
   return tocHtml.replace(/(href=")[\S]*?#/g, '$1#');
 }
-
 
 const headingPat = /"#(\S*?)"/g;
 
@@ -26,8 +25,8 @@ const getAllHeadings = toc => {
   return ret;
 };
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators;
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({ node, getNode });
     debug('slug %s', slug);
@@ -44,7 +43,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       url = getPostUrl(slug);
     }
 
-    // debug('node: %o', node); 
+    // debug('node: %o', node);
 
     // _hello-world.md will be hidden
     // the page will be generated
@@ -95,8 +94,8 @@ allMarkdownRemark(
   }
 }`;
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
   return graphql(allMarkdownRemarkQuery).then(result => {
     let edges;
     try {
@@ -121,7 +120,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       let headings = [];
       let toc;
-      if (type === 'notes' && tableOfContents !== '' ) {
+      if (type === 'notes' && tableOfContents !== '') {
         toc = preprocessToc(tableOfContents);
         headings = getAllHeadings(toc);
         // debug('headings: %o', headings);

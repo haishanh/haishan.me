@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import logoImg from '../assets/logo.svg';
@@ -47,6 +46,7 @@ class Header extends Component {
   };
 
   render() {
+    // eslint-disable-next-line
     const { hero } = this.props;
     const { logoColor } = this.state;
 
@@ -69,8 +69,7 @@ class Header extends Component {
                 height="128"
                 viewBox="0 0 128 128"
                 xmlns="http://www.w3.org/2000/svg"
-                fill={logoColor}
-              >
+                fill={logoColor}>
                 <path d="M28.2 43.7C17.2 54.7 2 66.4 2 79.2c0 13 6 22 31 23.3 24.8 1 30 12.3 51 12.3 20.6 0 42-15 42-41.2 0-21-11.8-28.5-20.2-39-8.4-10.3-18-21.6-38-21.6S39.5 32.8 28.3 43.7z" />
               </svg>
             </div>
@@ -78,14 +77,13 @@ class Header extends Component {
           <label
             className={s0.hamburger}
             aria-hidden="true"
-            htmlFor="menustate"
-          >
+            htmlFor="menustate">
             <div>
               <div />
             </div>
           </label>
         </div>
-        <nav role="navigation" className={s0.nav}>
+        <nav className={s0.nav}>
           <ul>
             <li>
               <a href="/posts">Posts</a>

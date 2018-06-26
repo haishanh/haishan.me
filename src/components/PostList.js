@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PublishTime from '../components/PublishTime';
 
-import Link from 'gatsby-link';
+import { Link } from "gatsby"
 import style from './PostList.module.scss';
 
 export default class PostList extends Component {

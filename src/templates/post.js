@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { graphql } from "gatsby"
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -31,7 +32,7 @@ export default class Post extends Component {
       }
 
       // set focused heading
-      const { headings } = this.props.pathContext;
+      const { headings } = this.props.pageContext;
       let offsets = [];
 
       // waiting for browser re-layout
@@ -111,7 +112,7 @@ export default class Post extends Component {
   }
 
   render() {
-    const { toc } = this.props.pathContext;
+    const { toc } = this.props.pageContext;
     const post = this.props.data.markdownRemark;
     const { title, hero, date } = post.frontmatter;
     const dateObj = new Date(date);
