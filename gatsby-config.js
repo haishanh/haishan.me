@@ -7,16 +7,14 @@ module.exports = {
     title: 'haishan.me'
   },
   plugins: [
-    'gatsby-plugin-react-next',
     {
-      resolve: `gatsby-plugin-postcss-sass`,
+      resolve: 'gatsby-plugin-sass',
       options: {
-        postCssPlugins: [autoprefixer()],
-        precision: 8
+        postCssPlugins: [autoprefixer()]
       }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `content`,
         path: `${__dirname}/content`
