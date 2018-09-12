@@ -154,7 +154,7 @@ export default class Post extends Component {
         <TitleAndMetaTags
           ogDescription={post.excerpt}
           ogUrl={createOgUrl(post.fields.url)}
-          title={`${title} - haishan.me`}
+          title={`${title} - haishan`}
         />
         <Header hero={hero} />
         <main role="main">

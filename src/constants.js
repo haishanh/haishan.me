@@ -1,4 +1,4 @@
 export default {
-  siteName: 'haishan.me',
-  baseUrl: 'http://haishan.me'
+  siteName: 'haishan',
+  baseUrl: 'https://haishancn.com'
 };

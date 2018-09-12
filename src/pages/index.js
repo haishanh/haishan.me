@@ -88,7 +88,7 @@ export default class Index extends React.Component {
     }
     return (
       <div>
-        <TitleAndMetaTags ogUrl={createOgUrl()} title="haishan.me" />
+        <TitleAndMetaTags ogUrl={createOgUrl()} title="haishan" />
         <div
           dangerouslySetInnerHTML={{ __html: svgSprite }}
           style={{ display: 'none', position: 'absolute', width: 0, height: 0 }}
