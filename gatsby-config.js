@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   siteMetadata: {
-    title: 'haishan.me'
+    title: 'haishan'
   },
   plugins: [
     {
