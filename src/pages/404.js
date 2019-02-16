@@ -17,7 +17,7 @@ class Page extends Component {
       <div className={style.root}>
         <Header />
         <TitleAndMetaTags
-          title={'Notes - ' + constants.siteName}
+          title={'Page Not Found - ' + constants.siteName}
           ogUrl={createOgUrl()}
         />
         <div className={style.content}>
