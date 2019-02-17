@@ -23,7 +23,14 @@ class Page extends Component {
         <div className={style.content}>
           <h1>404</h1>
           <h2>Page Not Found</h2>
-          <IconZanyFace width={400} />
+          <div
+            style={{
+              maxWidth: 400,
+              padding: '0 20px',
+              margin: '0 auto'
+            }}>
+            <IconZanyFace />
+          </div>
         </div>
         <Footer />
       </div>
