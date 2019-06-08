@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "autoprefixer": "^7.1.4",
-    "bluebird": "^3.5.0",
+    "bluebird": "^3.5.5",
     "classnames": "^2.2.5",
     "debug": "^3.1.0",
     "gatsby": "1.9.76",
