@@ -14,7 +14,7 @@
     "classnames": "^2.2.5",
     "debug": "^3.1.0",
     "gatsby": "1.9.76",
-    "gatsby-link": "^1.6.17",
+    "gatsby-link": "^1.6.46",
     "gatsby-plugin-google-analytics": "^1.0.8",
     "gatsby-plugin-manifest": "^1.0.8",
     "gatsby-plugin-netlify": "^1.0.6",
