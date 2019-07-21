@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PublishTime from '../components/PublishTime';
 
-import Link from 'gatsby-link';
+import { Link } from "gatsby"
 import style from './PostList.module.scss';
 
 export default class PostList extends Component {
+  static propTypes = {
+    edges: PropTypes.array
+  };
+
   render() {
-    const edges = this.props.edges;
+    const { edges } = this.props;
     return (
       <div>
         <Header />
