@@ -4732,10 +4732,10 @@ gatsby-react-router-scroll@^2.1.6:
     scroll-behavior "^0.9.10"
     warning "^3.0.0"
 
-gatsby-remark-autolink-headers@^2.0.0-beta.1:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.1.7.tgz#796cb33eae9b81ef92b0b2490cfeeb88ea2b3299"
-  integrity sha512-k5d+1p6KpNLslR8Fu8OV8T1/o3faC76k2O3GfN16eSO1LjdkvCIS7xT619qnb6M7dZlWwLtVfH2OMf0y4BT+YA==
+gatsby-remark-autolink-headers@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.1.9.tgz#823011336ba8aa0209e26bd738c125c0c36dd468"
+  integrity sha512-8prtaCg45afcog0G6Eua+xNahzfpLl4UBM8b/oF3SaCKr0ifXrZ+oy5ah+m48tHOWC0StIxXYQ7xm2NoEicS2A==
   dependencies:
     "@babel/runtime" "^7.5.5"
     github-slugger "^1.2.1"
