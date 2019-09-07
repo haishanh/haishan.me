@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import logoImg from '../assets/logo.svg';
 
-import s0 from './Header.module.scss';
+import s0 from './Header.module.css';
 
 /**
  * get random integer, [min, max)

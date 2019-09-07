@@ -1,7 +1,7 @@
-@import '../utils/mixins.scss';
+// vi: set ft=sass :
 
 .article {
-  @include clearfix;
+  @util clearfix;
 
   .articleHeader {
     text-align: center;

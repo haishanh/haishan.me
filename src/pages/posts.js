@@ -5,7 +5,7 @@ import PostList from '../components/PostList';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
 import createOgUrl from '../utils/createOgUrl';
 import constants from '../constants';
-import '../utils/reset.scss';
+import '../utils/reset.css';
 
 export default ({ data }) => {
   return (

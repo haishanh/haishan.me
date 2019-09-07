@@ -3,8 +3,6 @@
   width: 100%;
   position: relative;
 
-  // background: url(http://carlog.qiniudn.com/david-marcu-114194.jpg);
-  // background-size: cover;
   .bg {
     position: absolute;
     left: 0;
@@ -12,7 +10,6 @@
     top: 0;
     bottom: 0;
 
-    // background: rgba(0,0,0,0.7);
     background: #000;
   }
 }

@@ -1,10 +1,12 @@
-$gutter-distance: 6px;
+// vi: set ft=sass :
 
 .masthead {
   margin: 0 auto;
   padding: 20px;
   background: #000;
   position: relative;
+
+  --gutter: 6px;
 }
 
 .wrapper {
@@ -25,10 +27,6 @@ $gutter-distance: 6px;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.4);
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-
-    svg {
-      // fill: none;
-    }
   }
 
   &:hover {
@@ -39,13 +37,13 @@ $gutter-distance: 6px;
   }
 
   a {
-    $size: 80px;
+    --size: 80px;
 
     display: block;
     position: relative;
     z-index: 2;
-    width: $size;
-    height: $size;
+    width: var(--size);
+    height: var(--size);
 
     img {
       max-width: 100%;
@@ -54,49 +52,47 @@ $gutter-distance: 6px;
 }
 
 .hamburger {
-  $size: 19px;
-  $outer-size: 60px;
+  --size: 19px;
+  --outer-size: 60px;
 
   position: relative;
   z-index: 2;
-  width: $outer-size;
-  height: $outer-size;
+  width: var(--outer-size);
+  height: var(--outer-size);
 
   & > div {
     position: absolute;
-    width: $size;
-    height: $size;
+    width: var(--size);
+    height: var(--size);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
   div div {
-    width: $size;
+    width: var(--size);
     height: 1px;
     background: #f8f8f8;
     position: absolute;
-    top: ($size - 1px) / 2;
+    top: calc((var(--size) - 1px) / 2);
 
     &:before,
     &:after {
       content: ' ';
+      background: #f8f8f8;
       position: absolute;
-      width: $size;
+      width: var(--size);
       height: 1px;
       left: 0;
-      transform: rotate(0);
       transition: transform 0.35s ease;
     }
 
     &:before {
-      background: #f8f8f8;
-      top: -$gutter-distance;
+      transform: translate(0, -6px);
     }
 
     &:after {
-      background: #f8f8f8;
-      top: $gutter-distance;
+      transform: translate(0, 6px);
     }
   }
 }
@@ -144,11 +140,11 @@ $gutter-distance: 6px;
     }
 
     &:before {
-      transform: translate(0, $gutter-distance) rotate(45deg);
+      transform: rotate(45deg);
     }
 
     &:after {
-      transform: translate(0, -$gutter-distance) rotate(-45deg);
+      transform: rotate(-45deg);
     }
   }
 }

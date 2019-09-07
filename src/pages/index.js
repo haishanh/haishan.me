@@ -6,8 +6,8 @@ import createOgUrl from '../utils/createOgUrl';
 import throttle from '../utils/throttle';
 import isMobile from '../utils/isMobile';
 
-import '../utils/reset.scss';
-import s0 from './index.module.scss';
+import '../utils/reset.css';
+import s0 from './index.module.css';
 import jump from 'jump.js';
 
 const svgSprite = `

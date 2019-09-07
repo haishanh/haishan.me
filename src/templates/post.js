@@ -10,9 +10,9 @@ import createOgUrl from '../utils/createOgUrl';
 
 import jump from 'jump.js';
 
-import '../utils/reset.scss';
-import './prism-yo.scss';
-import style from './post.module.scss';
+import '../utils/reset.css';
+import './prism-yo.css';
+import style from './post.module.css';
 
 export default class Post extends Component {
   dom = {};

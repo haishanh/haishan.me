@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import PublishTime from '../components/PublishTime';
 
 import { Link } from "gatsby"
-import style from './PostList.module.scss';
+import style from './PostList.module.css';
 
 export default class PostList extends Component {
   static propTypes = {

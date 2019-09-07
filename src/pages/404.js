@@ -8,8 +8,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import IconZanyFace from '../components/IconZanyFace';
 
-import '../utils/reset.scss';
-import style from './404.module.scss';
+import '../utils/reset.css';
+import style from './404.module.css';
 
 class Page extends Component {
   render() {
