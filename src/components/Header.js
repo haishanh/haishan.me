@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import IconHs from './icons/IconHs';
 
 import logoImg from '../assets/logo.svg';
 
@@ -38,7 +39,6 @@ class Header extends Component {
   state = { logoColor: 'none' };
 
   handleLogoOnMouseEnter = e => {
-    // return;
     e.preventDefault();
     e.stopPropagation();
     const { logoColorPresets: presets } = this.props;
@@ -46,8 +46,6 @@ class Header extends Component {
   };
 
   render() {
-    // eslint-disable-next-line
-    const { hero } = this.props;
     const { logoColor } = this.state;
 
     return (
@@ -63,15 +61,8 @@ class Header extends Component {
             <Link to={'/'}>
               <img src={logoImg} alt="logo" />
             </Link>
-            <div>
-              <svg
-                width="128"
-                height="128"
-                viewBox="0 0 128 128"
-                xmlns="http://www.w3.org/2000/svg"
-                fill={logoColor}>
-                <path d="M28.2 43.7C17.2 54.7 2 66.4 2 79.2c0 13 6 22 31 23.3 24.8 1 30 12.3 51 12.3 20.6 0 42-15 42-41.2 0-21-11.8-28.5-20.2-39-8.4-10.3-18-21.6-38-21.6S39.5 32.8 28.3 43.7z" />
-              </svg>
+            <div style={{ color: logoColor }}>
+              <IconHs />
             </div>
           </div>
           <label

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby';
 
+import GoogleFonts from '../components/GoogleFonts';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
@@ -146,11 +147,8 @@ export default class Post extends Component {
 
     const { article, contentWrapper, content } = style;
     return (
-      <div>
-        <link
-          href="https://fonts.googleapis.com/css?family=Inconsolata"
-          rel="stylesheet"
-        />
+      <>
+        <GoogleFonts />
         <TitleAndMetaTags
           ogDescription={post.excerpt}
           ogUrl={createOgUrl(post.fields.url)}
@@ -161,8 +159,7 @@ export default class Post extends Component {
           <article
             className={article}
             itemScope
-            itemType="http://schema.org/BlogPosting"
-          >
+            itemType="http://schema.org/BlogPosting">
             <header className={style.articleHeader} style={headerStyle}>
               <div style={headerWrapperStyle}>
                 <h1 itemProp="headline">{title}</h1>
@@ -173,8 +170,7 @@ export default class Post extends Component {
             </header>
             <div
               className={contentWrapper}
-              ref={el => (this.dom.tocStickAnchor = el)}
-            >
+              ref={el => (this.dom.tocStickAnchor = el)}>
               {this.renderToc(toc)}
               <div
                 className={content}
@@ -185,7 +181,7 @@ export default class Post extends Component {
           </article>
         </main>
         <Footer />
-      </div>
+      </>
     );
   }
 }
