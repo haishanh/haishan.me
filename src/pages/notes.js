@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PostList from '../components/PostList';
-
+import Layout from '../components/Layout';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
 import createOgUrl from '../utils/createOgUrl';
 import constants from '../constants';
@@ -9,13 +9,13 @@ import '../utils/reset.css';
 
 export default ({ data }) => {
   return (
-    <div>
+    <Layout>
       <TitleAndMetaTags
         title={'Notes - ' + constants.siteName}
         ogUrl={createOgUrl()}
       />
       <PostList edges={data.allMarkdownRemark.edges} />
-    </div>
+    </Layout>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
+import Layout from '../components/Layout';
 import GoogleFonts from '../components/GoogleFonts';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -115,7 +116,8 @@ export default class Post extends Component {
   render() {
     const { toc } = this.props.pageContext;
     const post = this.props.data.markdownRemark;
-    const { title, hero, date } = post.frontmatter;
+    const { title, hero, date, theme: _theme } = post.frontmatter;
+    const theme = _theme === 'dark' ? 'dark' : 'light';
     const dateObj = new Date(date);
 
     let headerStyle = {};
@@ -147,7 +149,7 @@ export default class Post extends Component {
 
     const { article, contentWrapper, content } = style;
     return (
-      <>
+      <Layout theme={theme}>
         <GoogleFonts />
         <TitleAndMetaTags
           ogDescription={post.excerpt}
@@ -181,7 +183,7 @@ export default class Post extends Component {
           </article>
         </main>
         <Footer />
-      </>
+      </Layout>
     );
   }
 }
@@ -194,6 +196,7 @@ export const query = graphql`
       frontmatter {
         title
         date
+        theme
         hero {
           image
           height

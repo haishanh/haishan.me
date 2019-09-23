@@ -12,6 +12,7 @@ body {
     'Source Han Sans SC', 'Microsoft YaHei', 'Wenquanyi Micro Hei',
     'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp',
     sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
