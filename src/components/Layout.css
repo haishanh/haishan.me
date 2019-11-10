@@ -6,9 +6,10 @@
   --color-pre-fg: #a0a0a0;
   --color-pre-border: #464646;
 
-  --color-code-bg: rgba(0,0,0,0);
+  --color-code-bg: rgba(0, 0, 0, 0);
   --color-code-fg: #a0a0a0;
   --color-code-border: #464646;
+  --color-a: #e3e3e3;
 }
 
 .light {
@@ -22,6 +23,7 @@
   --color-code-bg: #d6eaf4;
   --color-code-fg: #0c4765;
   --color-code-border: #51847f;
+  --color-a: #4c6dd1;
 }
 
 .layout {

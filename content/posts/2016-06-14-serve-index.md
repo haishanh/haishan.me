@@ -58,7 +58,7 @@ location /static {
 
 运行 `server.js`，并 start/reload nginx。
 
-```sh
+```bash
 /path/to/serve.js
 nginx -s reload
 ```
@@ -75,13 +75,13 @@ location ~ ^/static.*/$ {
 
 为了防止 server.js 在运行的过程中意外退出，可以用 *pm2* 管理一下。当然我们首先要全局安装一下 pm2:
 
-```sh
+```bash
 npm install pm2 -g
 ```
 
 然后就可以用 pm2 来启动 serve.js 了:
 
-```sh
+```bash
 pm2 start /path/to/serve.js --name "serve-index"
 ```
 
@@ -90,13 +90,13 @@ pm2 start /path/to/serve.js --name "serve-index"
 
 如果需要开机启动，可以运行以下命令，`pm2`会自动判断操作系统/平台信息，[相应的进行 startup 配置][system-startup-conf]。
 
-```sh
+```bash
 sudo pm2 startup
 ```
 
 如果不能识别平台信息，可以尝试手动指定一下，比如我是用的 `systemd`
 
-```sh
+```bash
 sudo pm2 startup systemd
 ```
 
