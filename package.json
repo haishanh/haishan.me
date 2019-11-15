@@ -24,7 +24,7 @@
     "jump.js": "^1.0.2",
     "prismjs": "^1.14.0",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",
     "tinytime": "^0.2.6"
   },
