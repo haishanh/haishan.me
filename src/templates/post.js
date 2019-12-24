@@ -156,7 +156,7 @@ export default class Post extends Component {
           ogUrl={createOgUrl(post.fields.url)}
           title={`${title} - haishan.me`}
         />
-        <Header hero={hero} />
+        <Header />
         <main role="main">
           <article
             className={article}
