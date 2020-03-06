@@ -15,7 +15,7 @@
     "classnames": "^2.2.5",
     "debug": "^4.0.1",
     "gatsby": "^2.19.19",
-    "gatsby-plugin-google-analytics": "^2.1.1",
+    "gatsby-plugin-google-analytics": "^2.1.37",
     "gatsby-plugin-netlify": "^2.1.5",
     "gatsby-remark-autolink-headers": "^2.0.0-beta.1",
     "gatsby-remark-prismjs": "^3.3.2",
