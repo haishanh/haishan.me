@@ -10,7 +10,7 @@
     "pretty": "prettier --single-quote --write 'src/**/*.{js,scss}'"
   },
   "dependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.8.0",
     "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "debug": "^4.0.1",
