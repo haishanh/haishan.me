@@ -48,36 +48,34 @@
   padding: 30px;
   background: #000;
   color: #fff;
-  margin-top: -1px; // work around mobile chrome 100vh issue
+  /* work around mobile chrome 100vh issue */
+  margin-top: -1px;
+}
 
-  nav {
-    padding: 20px 0;
+.main nav {
+  padding: 20px 0;
+}
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+.main nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.main nav ul a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 100;
+  font-size: 1.5em;
+}
 
-      a {
-        display: block;
-        padding: 10px 0;
-        text-decoration: none;
-        color: #fff;
-        font-weight: 100;
-        font-size: 1.5em;
-      }
+.main nav ul li {
+  padding: 5px 8px;
+}
 
-      li {
-        padding: 5px 8px;
-      }
-
-      li:hover {
-        a {
-          color: #777;
-        }
-      }
-    }
-  }
+.main nav ul li:hover a {
+  color: #777;
 }
 
 .mainWrapper {

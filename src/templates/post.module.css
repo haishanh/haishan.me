@@ -1,5 +1,3 @@
-// vi: set ft=sass :
-
 .article {
   @util clearfix;
 
@@ -21,10 +19,6 @@
     padding: 0 0 10px 0;
   }
 
-  // a {
-  //   color: #4c6dd1;
-  // }
-
   img {
     max-width: calc(100% + 15px * 2);
     display: block;
@@ -40,7 +34,6 @@
       'Courier New', monospace;
   }
 
-  // inline code
   li > code,
   p > code {
     border-radius: 3px;
@@ -109,9 +102,6 @@
     overflow-y: scroll;
     max-height: 100vh;
 
-    // position: absolute;
-    // top: 0;
-    // left: -280px;
     width: 250px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -152,22 +142,17 @@
     p {
       margin: 0;
     }
-
     a {
-      // color: #3498db;
       color: #999;
-
       &.focused {
         color: #333;
       }
-
       &:hover {
         color: tomato;
       }
     }
   }
 
-  // wll been applied to the toc container
   .fixed {
     position: fixed;
     top: 0;

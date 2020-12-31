@@ -1,22 +1,22 @@
-'use strict';
+"use strict";
 
-const debug = require('debug')('www');
-const Promise = require('bluebird');
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
-const { getPostUrl, getNoteUrl } = require('./src/utils/url');
+const debug = require("debug")("www");
+const Promise = require("bluebird");
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
+const { getPostUrl, getNoteUrl } = require("./src/utils/url");
 
 function preprocessToc(tocHtml) {
   // convert
   // <a href="/notes/2015-09-24-bash/#getopts">getopts</a>
   // to
   // <a href="#getopts">getopts</a>
-  return tocHtml.replace(/(href=")[\S]*?#/g, '$1#');
+  return tocHtml.replace(/(href=")[\S]*?#/g, "$1#");
 }
 
 const headingPat = /"#(\S*?)"/g;
 
-const getAllHeadings = toc => {
+const getAllHeadings = (toc) => {
   let capture;
   let ret = [];
   while ((capture = headingPat.exec(toc))) {
@@ -27,19 +27,19 @@ const getAllHeadings = toc => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({ node, getNode });
-    debug('slug %s', slug);
-    let type = '';
-    let url = '';
+    debug("slug %s", slug);
+    let type = "";
+    let url = "";
     // node.fileAbsolutePath: '/x/y/z/content/notes/bash-shell.md'
     const filePath = node.fileAbsolutePath;
     const { dir, base } = path.parse(filePath);
     if (/notes$/.test(dir)) {
-      type = 'notes';
+      type = "notes";
       url = getNoteUrl(slug);
     } else if (/posts$/.test(dir)) {
-      type = 'posts';
+      type = "posts";
       url = getPostUrl(slug);
     }
 
@@ -50,27 +50,27 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     // but not listed in /posts /notes ...
     const hidden = /^_/.test(base) ? true : false;
 
-    if (type === '') throw new Error(`can not resolve type for: ${filePath}`);
+    if (type === "") throw new Error(`can not resolve type for: ${filePath}`);
 
     createNodeField({
       node,
-      name: 'slug',
-      value: slug
+      name: "slug",
+      value: slug,
     });
     createNodeField({
       node,
-      name: 'type',
-      value: type
+      name: "type",
+      value: type,
     });
     createNodeField({
       node,
-      name: 'url',
-      value: url
+      name: "url",
+      value: url,
     });
     createNodeField({
       node,
-      name: 'hidden',
-      value: hidden
+      name: "hidden",
+      value: hidden,
     });
   }
 };
@@ -96,31 +96,32 @@ allMarkdownRemark(
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  return graphql(allMarkdownRemarkQuery).then(result => {
+  return graphql(allMarkdownRemarkQuery).then((result) => {
     let edges;
     try {
       edges = result.data.allMarkdownRemark.edges;
     } catch (e) {
-      throw new Error('error with markdown GraphQL data source');
+      throw new Error("error with markdown GraphQL data source");
     }
 
     // using same template for now
     // separate them for easy future extention
-    const postTemplate = path.resolve('./src/templates/post.js');
-    const noteTemplate = path.resolve('./src/templates/post.js');
+    const postTemplate = path.resolve("./src/templates/post.js");
+    const noteTemplate = path.resolve("./src/templates/post.js");
 
-    debug('generating each post');
-    return Promise.map(edges, ({ node }) => {
+    debug("generating each post");
+
+    function createPageFromEdge({ node }) {
       const { tableOfContents, fields } = node;
       const { slug, type, url } = fields;
       let component;
-      if (type === 'notes') component = noteTemplate;
-      if (type === 'posts') component = noteTemplate;
-      debug('url', url);
+      if (type === "notes") component = noteTemplate;
+      if (type === "posts") component = noteTemplate;
+      debug("url", url);
 
       let headings = [];
       let toc;
-      if (type === 'notes' && tableOfContents !== '') {
+      if (type === "notes" && tableOfContents !== "") {
         toc = preprocessToc(tableOfContents);
         headings = getAllHeadings(toc);
         // debug('headings: %o', headings);
@@ -134,9 +135,12 @@ exports.createPages = ({ graphql, actions }) => {
           // @see https://www.gatsbyjs.org/docs/bound-action-creators/#createPage
           slug,
           toc,
-          headings
-        }
+          headings,
+        },
       });
-    });
+    }
+
+    return Promise.all(edges.map(createPageFromEdge));
+    // return Promise.map(edges, ({ node }) => { });
   });
 };
