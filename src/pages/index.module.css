@@ -2,16 +2,14 @@
   height: 100vh;
   width: 100%;
   position: relative;
-
-  .bg {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-
-    background: #000;
-  }
+}
+.hero .bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #000;
 }
 
 .tries {
@@ -20,11 +18,11 @@
   right: 0;
   top: 0;
   bottom: 0;
+}
 
-  svg {
-    width: 39px;
-    height: 32px;
-  }
+.tries svg {
+  width: 39px;
+  height: 32px;
 }
 
 .arrow {
@@ -32,14 +30,14 @@
   left: 50%;
   bottom: 2%;
   transform: translateX(-50%);
+}
 
-  svg {
-    width: 48px;
-    height: 48px;
-    fill: none;
-    stroke: #eee;
-    stroke-width: 2px;
-  }
+.arrow svg {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: #eee;
+  stroke-width: 2px;
 }
 
 .main {

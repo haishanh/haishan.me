@@ -12,6 +12,7 @@
   "dependencies": {
     "autoprefixer": "^10.1.0",
     "bluebird": "^3.5.0",
+    "canvas-sketch-util": "^1.10.0",
     "classnames": "^2.2.5",
     "debug": "^4.3.1",
     "gatsby": "^2.29.3",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "gatsby-plugin-postcss": "^3.4.0",
+    "gatsby-plugin-typescript": "^2.9.0",
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.3",
     "postcss-scss": "^3.0.4",

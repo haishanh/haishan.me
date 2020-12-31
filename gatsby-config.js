@@ -11,6 +11,7 @@ module.exports = {
     title: "haishan.me",
   },
   plugins: [
+    "gatsby-plugin-typescript",
     {
       resolve: "gatsby-plugin-postcss",
       options: {

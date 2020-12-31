@@ -1,5 +1,3 @@
-// vi: set ft=sass :
-
 .masthead {
   margin: 0 auto;
   padding: 20px;
@@ -78,7 +76,7 @@
 
     &:before,
     &:after {
-      content: ' ';
+      content: " ";
       background: #f8f8f8;
       position: absolute;
       width: var(--size);
@@ -108,24 +106,24 @@
   max-height: 0px;
   overflow: hidden;
   transition: all 0.35s ease-in-out;
+}
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  li {
-    line-height: 40px;
+.nav li {
+  line-height: 40px;
 
-    a {
-      display: block;
-      color: #fff;
-      text-align: center;
+  a {
+    display: block;
+    color: #fff;
+    text-align: center;
 
-      &:hover {
-        color: #777;
-      }
+    &:hover {
+      color: #777;
     }
   }
 }
